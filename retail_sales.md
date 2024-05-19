@@ -121,3 +121,5 @@
 - see `date_dimension_table.md`
 
 # Product Dimension
+
+p 120 (pdf)
