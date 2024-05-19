@@ -105,7 +105,7 @@
     - you then sold 4 widgets at a price of $0.50 each 
     - you can sum the sales quantity --> 5 units sold
     - you can sum the dollar mounts --> $3 total sold 
-    - you **cannot** sum the uni prices and say the total unit price was $1.50
+    - you **cannot** sum the unit prices and say the total unit price was $1.50
     - you **cannot** average them, and say the average unit price $0.75
     - you **can** get the weighted average unit price:
         - total sales amount ($3) / total quantity ($5 units) 
@@ -113,3 +113,11 @@
 
 # Transaction Fact Tables  
 
+- either one row per transaction or one row per transaction line
+- metrics are typically additive as long as they have been extended by the quantity amount, rather than capturing per unit metrics
+
+# Date Dimension 
+
+- see `date_dimension_table.md`
+
+# Product Dimension

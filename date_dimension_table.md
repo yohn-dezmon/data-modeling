@@ -66,3 +66,34 @@ Special Flags and Indicators
 IsCurrentDay (Boolean or 1 for yes, 0 for no, indicating if the date is the current date)
 IsCurrentMonth (Boolean or 1 for yes, 0 for no, indicating if the date is in the current month)
 IsCurrentYear (Boolean or 1 for yes, 0 for no, indicating if the date is in the current year)
+
+
+# p. 80 Date Dimension Table (Retail) 
+
+- daily grained dimension table 
+- distinct from "time of day" dimensions  
+- you build this in advance 
+- create it with 10 or 20 years of rows representing individual days in the table  
+- 20 years = 7,300 rows
+- sql doesn't support filtering by weekdays or weekends, holidays, fiscal periods, etc.
+- **calendar logic belongs in a dimension table, not the application code**  
+
+## Flags and Indicators 
+
+- it's better to use `Holiday` and `Non-Holiday` rather than `TRUE` `FALSE`
+- it's less cryptic 
+- this way they are consistently available to all users
+
+# Relative Date Attributes
+
+- some columns like `IsCurrentDay` will need to be updated daily
+- `IsCurrentDay` will actually refer to the previous day at some point since you only update it once a day
+
+# Time of day fact table
+
+- one row per discrete time period
+- e.g. one row per 15 minutes if that was important to you
+- or one row per minute, but you probably don't want to backfill this very far bc the size will explode  
+- if there is no need to roll up or filter on time-of-day groupings, just use a timestamp
+- users typically care about `lag`: i.e. one time - another time 
+
