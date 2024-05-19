@@ -17,3 +17,7 @@ Chapter 20 - ETL system process
 ```
 
 
+- basic idea is to take a finer grain fact table and aggregate it and create a new fact table over a longer time period.
+- e.g. take click stream data and aggregate it to total page visits per month
+
+
