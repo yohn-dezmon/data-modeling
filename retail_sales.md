@@ -80,7 +80,7 @@
 - Extended Cost Dollar Amount
     - units sold * cost from vendor 
 - Extended Gross Profit Dollar Amount
-    - extended cost dollar amount - extended sales dollar amount
+    -  extended sales dollar amount -  extended cost dollar amount
 
 
 * they recommend that we store `calculated derived facts` in the database! 
@@ -89,4 +89,27 @@
 
 # Non Additive Facts  
 
+- percentages and ratios (e.g. gross margin) are non-additive 
+- the numerator and denominator should be stored in the fact table 
+- the ratios are then computed for a slice of the fact table
+- you want to calculate the ratio of the sums, not the sum of the ratios 
+
+- gross margin:
+    - profit / revenue 
+    - dividing the gross profit by the extended sales dollar revenue
+    - e.g. cost was $10, revenue was $15, gross profit (revenue - cost) was $5
+        - so $5 / $15 = 0.3
+
+- **unit price** is a non-additive fact!
+    - you sold one widget at a unit price of $1.00
+    - you then sold 4 widgets at a price of $0.50 each 
+    - you can sum the sales quantity --> 5 units sold
+    - you can sum the dollar mounts --> $3 total sold 
+    - you **cannot** sum the uni prices and say the total unit price was $1.50
+    - you **cannot** average them, and say the average unit price $0.75
+    - you **can** get the weighted average unit price:
+        - total sales amount ($3) / total quantity ($5 units) 
+        - ($1 * 1) + ($ 0.5 * 4) / 5 
+
+# Transaction Fact Tables  
 
