@@ -123,3 +123,53 @@
 # Product Dimension
 
 p 120 (pdf)
+- typically SKU > brand > category > department
+- each of these is a many to one relationship
+- "mechandise hierarchy"
+-
+
+# Attributes with embedded meaning
+
+- this is considered a natural key NK
+- different parts of the code may represent different characteristics of the product
+- "operational product codes"
+
+# Drilling down 
+
+- asking for a row header from a dimension that provides more information 
+- basically taking an existing aggregation, and adding a new attribute, and seeing the aggregation at that level of detail (like adding a new column to the GROUP BY clause)
+- "drilling up" is the opposite  
+
+
+# Store Dimension 
+
+- stores exist at geographic locations
+- many states have cities with the same name
+- you'll want to include a `city_state` attribute
+- there are usually "store districts" and "store regions"
+
+
+Store Dimension:
+- Store Key (PK)
+- Store Number (NK)
+- Store Name
+- Street Address
+- City
+- County
+- City-State
+- State
+- Zip Code
+- Manager
+- District
+- Region
+- Floor plan type
+- photo processing type
+- financial service type
+- selling square footage
+- total square footage
+- first open date
+- last remodel date
+
+why not just have a separate address/region dimension?  
+
+# Promotion Dimension 
