@@ -117,3 +117,5 @@ GROUP BY
     product,
     store;
 ```
+
+p. 151
